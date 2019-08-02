@@ -1,6 +1,4 @@
-package com.nickdnepr.strategy.map;
-
-import com.nickdnepr.strategy.Main;
+package com.nickdnepr.strategy.map.surface;
 
 import static com.nickdnepr.strategy.Main.*;
 
@@ -27,25 +25,49 @@ public enum SurfaceType {
     public String getDrawingString() {
         switch (this) {
             case EARTH: {
-                return ANSI_GREEN + "E" + ANSI_RESET;
+                return "E";
             }
             case DIRT: {
-                return ANSI_RED + "D" + ANSI_RESET;
+                return "D";
             }
             case WATER: {
-                return ANSI_BLUE + "W" + ANSI_RESET;
+                return "W";
             }
             case CONCRETE: {
-                return ANSI_CYAN + "C" + ANSI_RESET;
+                return "C";
             }
             case SAND: {
-                return ANSI_YELLOW + "S" + ANSI_RESET;
+                return "S";
             }
             case ASPHALT: {
                 return "A";
             }
         }
         return "?";
+    }
+
+    public String getColor() {
+        switch (this) {
+            case EARTH: {
+                return ANSI_GREEN;
+            }
+            case DIRT: {
+                return ANSI_RED;
+            }
+            case WATER: {
+                return ANSI_BLUE;
+            }
+            case CONCRETE: {
+                return ANSI_CYAN;
+            }
+            case SAND: {
+                return ANSI_YELLOW;
+            }
+            case ASPHALT: {
+                return "";
+            }
+        }
+        return "";
     }
 
     public static SurfaceType getTypeByString(String s) {

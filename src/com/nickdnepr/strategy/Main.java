@@ -2,10 +2,19 @@ package com.nickdnepr.strategy;
 
 import com.nickdnepr.strategy.map.*;
 import com.nickdnepr.strategy.map.routing.Route;
+import com.nickdnepr.strategy.map.routing.RoutingPredicate;
 import com.nickdnepr.strategy.map.routing.graphComponents.Point;
+import com.nickdnepr.strategy.map.surface.SurfaceMap;
+import com.nickdnepr.strategy.map.surface.SurfaceType;
+import com.nickdnepr.strategy.map.units.UnitsMap;
+import com.nickdnepr.strategy.models.Unit;
 import com.nickdnepr.strategy.utils.InputRange;
+import com.nickdnepr.strategy.utils.MapDrawer;
 import com.nickdnepr.strategy.utils.Strings;
+import com.nickdnepr.strategy.utils.UnitMovesDrawer;
 
+import java.io.IOException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -29,28 +38,30 @@ public class Main {
     public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
     public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 
-    public static final String VERSION = "0.0.1-alpha";
+    public static final String VERSION = "0.0.2-alpha";
     private static final Scanner sc = new Scanner(System.in);
-    private static GameMap presetGameMap;
-
-    public static void coloredPrint(String text, String textColor, String background) {
-        System.out.print(background + textColor + text + ANSI_RESET);
-    }
-
-    public static void coloredPrint(String text, String textColor) {
-        System.out.print(textColor + text + ANSI_RESET);
-    }
+    private static UnitsMap unitsMap;
+    private static SurfaceMap presetSurfaceMap;
 
 
-    public static void main(String[] args) {
+
+
+    public static void main(String[] args){
+//        if (System.console() != null && System.getenv().get("TERM") != null) {
+//            System.out.println("\u001B[36m"+"Menu optionzzzzzzzzz"+"\u001B[0m");
+//        } else {
+//            System.out.println("Fuck you, sorry");
+//        }
         loadPresetMap();
-        System.out.println("Welcome to the strategy core. Current version is "+VERSION+"");
+        MapDrawer.drawReliefMap(unitsMap);
+//        testUnits();
+        System.out.println("Welcome to the strategy core. Current version is " + VERSION + "");
         System.out.println(Strings.HELLO_STRING);
         boolean exit = false;
-        GameMap gameMap = presetGameMap;
+        SurfaceMap surfaceMap = presetSurfaceMap;
         while (!exit) {
             String command = sc.nextLine();
-            if (command.equals("help")){
+            if (command.equals("help")) {
                 System.out.println(Strings.HELLO_STRING);
             }
             if (command.toLowerCase().equals("exit")) {
@@ -61,13 +72,13 @@ public class Main {
                 System.out.println("Please input map sizes");
                 int width = getInt("Please input width", InputRange.POSITIVE_NUMBERS);
                 int height = getInt("Please input height", InputRange.POSITIVE_NUMBERS);
-                gameMap = new GameMap(width, height);
+                surfaceMap = new SurfaceMap(width, height);
                 System.out.println("Created blank map with width " + width + " and height " + height);
                 continue;
             }
             if (command.toLowerCase().equals("sh")) {
-                if (gameMap != null) {
-                    gameMap.printMap();
+                if (surfaceMap != null) {
+                    surfaceMap.printMap();
                 } else {
                     System.out.println("Map is not created");
                     continue;
@@ -75,12 +86,12 @@ public class Main {
             }
             if (command.toLowerCase().equals("ap")) {
 
-                if (gameMap != null) {
-                    Coordinates coordinates = getCoordinates(gameMap, "Please input coordinates to add point");
+                if (surfaceMap != null) {
+                    Coordinates coordinates = getCoordinates(surfaceMap, "Please input coordinates to add point");
                     int x = coordinates.getX();
                     int y = coordinates.getY();
                     SurfaceType surfaceType = getSurfaceType("Please input surface type");
-                    Point p = gameMap.addPoint(x, y, surfaceType);
+                    Point p = surfaceMap.addPoint(x, y, surfaceType);
                     System.out.println("Added point with coordinates x=" + p.getCoordinates().getX() + ", y=" + p.getCoordinates().getY() + " and surface type " + p.getSurfaceType().getDrawingString());
                 } else {
                     System.out.println("Map is not created");
@@ -89,17 +100,17 @@ public class Main {
             }
             if (command.toLowerCase().equals("pr")) {
                 loadPresetMap();
-                gameMap = presetGameMap;
+                surfaceMap = presetSurfaceMap;
                 System.out.println("Loaded preset map");
                 continue;
             }
 
             if (command.toLowerCase().equals("r")) {
-                Coordinates start = getCoordinates(gameMap, "Please input start of the route");
-                Coordinates end = getCoordinates(gameMap, "Please input end of the route");
+                Coordinates start = getCoordinates(surfaceMap, "Please input start of the route");
+                Coordinates end = getCoordinates(surfaceMap, "Please input end of the route");
                 Route route;
-                if (gameMap != null) {
-                    route = gameMap.getRoute(start, end, RoutingPredicate.SURFACE_DEFAULT);
+                if (surfaceMap != null) {
+                    route = surfaceMap.getRoute(start, end, RoutingPredicate.SURFACE_DEFAULT);
                 } else {
                     System.out.println("Map in not created");
                     continue;
@@ -110,14 +121,52 @@ public class Main {
                 }
                 System.out.println(route.getRouteString());
                 System.out.println(route.getFullPrice());
+                System.out.println(route.toString());
+            }
+            if (command.toLowerCase().equals("un")) {
+                System.out.println("List of units:");
+                System.out.println(unitsMap.getUnitsBase().toString());
+            }
+            if (command.toLowerCase().equals("au")) {
+                System.out.println("Please input unit name");
+                String name = sc.nextLine();
+                System.out.println("Please input action points");
+                Double actionPoints = Double.valueOf(sc.nextLine());
+                Unit unit = new Unit(name, actionPoints, getCoordinates(surfaceMap, "Please input unit coordinates"), RoutingPredicate.SURFACE_DEFAULT);
+                if (unitsMap.addUnit(unit)){
+                    System.out.println("Unit added successfully");
+                    System.out.println(unit.toString());
+                }else {
+                    System.out.println("Could not add unit");
+                }
+            }
+            if (command.toLowerCase().equals("sur")) {
+                System.out.println("Please input unit id");
+                Long unitId = Long.valueOf(sc.nextLine());
+                Coordinates destination = getCoordinates(surfaceMap, "Please input destination coordinates");
+                Route route =  unitsMap.calculateRoute(unitsMap.findUnitById(unitId), destination);
+            }
+            if (command.toLowerCase().equals("mou")){
+                System.out.println("Please input unit id");
+                Long unitId = Long.valueOf(sc.nextLine());
+                unitsMap.moveUnit(unitsMap.findUnitById(unitId), UnitMovesDrawer.CONSOLE_DRAWER);
+            }
+            if (command.toLowerCase().equals("cls")){
+                System.out.print("\033[H\033[2J");
+                System.out.flush();
+            }
+            if (command.toLowerCase().equals("shu")){
+                System.out.println("Please input unit id");
+                long unitId = Long.parseLong(sc.nextLine());
+                MapDrawer.drawUnitOnMap(unitsMap, unitId);
             }
         }
     }
 
-    private static Coordinates getCoordinates(GameMap finalGameMap, String inviteString) {
+    private static Coordinates getCoordinates(SurfaceMap finalSurfaceMap, String inviteString) {
         System.out.println(inviteString);
-        int x = getInt("Please input x", i -> i > -1 && i < finalGameMap.getWidth());
-        int y = getInt("Please input y", i -> i > -1 && i < finalGameMap.getHeight());
+        int x = getInt("Please input x", i -> i > -1 && i < finalSurfaceMap.getWidth());
+        int y = getInt("Please input y", i -> i > -1 && i < finalSurfaceMap.getHeight());
         return new Coordinates(x, y);
     }
 
@@ -149,82 +198,113 @@ public class Main {
         }
     }
 
+    private static void testUnits() {
+        UnitsMap unitsMap = new UnitsMap(presetSurfaceMap);
+        Unit baseUnit = new Unit("Hero", 10, new Coordinates(0, 0), RoutingPredicate.SURFACE_DEFAULT);
+        Unit unit = new Unit("unit1", 10, new Coordinates(1, 1), RoutingPredicate.SURFACE_DEFAULT);
+        Unit unit2 = new Unit("unit2", 10, new Coordinates(3, 3), RoutingPredicate.SURFACE_DEFAULT);
+        Unit unit3 = new Unit("unit3", 10, new Coordinates(3, 3), RoutingPredicate.SURFACE_DEFAULT);
+        Unit unit4 = new Unit("unit4", 10, new Coordinates(3, 3), RoutingPredicate.SURFACE_DEFAULT);
+        Unit unit5 = new Unit("unit5", 10, new Coordinates(3, 3), RoutingPredicate.SURFACE_DEFAULT);
+        Unit unit6 = new Unit("unit6", 10, new Coordinates(3, 3), RoutingPredicate.SURFACE_DEFAULT);
+        Unit unit7 = new Unit("unit7", 10, new Coordinates(3, 3), RoutingPredicate.SURFACE_DEFAULT);
+        Unit unit8 = new Unit("unit8", 10, new Coordinates(3, 3), RoutingPredicate.SURFACE_DEFAULT);
+        Unit unit9 = new Unit("unit9", 10, new Coordinates(3, 3), RoutingPredicate.SURFACE_DEFAULT);
+        Unit unit10 = new Unit("unit10", 10, new Coordinates(3, 3), RoutingPredicate.SURFACE_DEFAULT);
+        System.out.println(unitsMap.addUnit(unit));
+        System.out.println(unitsMap.addUnit(unit2));
+        System.out.println(unitsMap.addUnit(unit3));
+        System.out.println(unitsMap.addUnit(unit4));
+        System.out.println(unitsMap.addUnit(unit5));
+        System.out.println(unitsMap.addUnit(unit6));
+        System.out.println(unitsMap.addUnit(unit7));
+        System.out.println(unitsMap.addUnit(unit8));
+        System.out.println(unitsMap.addUnit(unit9));
+        System.out.println(unitsMap.addUnit(unit10));
+        unitsMap.addUnit(baseUnit);
+//        System.out.println(unitsMap.deleteUnit(unit2));
+        unitsMap.printMap();
+        System.out.println(Arrays.toString(unitsMap.getUnitsOnCell(new Coordinates(0, 0))));
+        System.out.println(unitsMap.calculateRoute(baseUnit, new Coordinates(7, 7)) + "-----");
+        unitsMap.calculateRoute(unit, new Coordinates(3, 3));
+        unitsMap.moveUnit(unit, UnitMovesDrawer.CONSOLE_DRAWER);
+        unitsMap.moveUnit(baseUnit, UnitMovesDrawer.CONSOLE_DRAWER);
+    }
+
     private static void loadPresetMap() {
-        presetGameMap = new GameMap(8, 8);
-        presetGameMap.addPoint(0, 0, SurfaceType.ASPHALT);
-        presetGameMap.addPoint(0, 1, SurfaceType.DIRT);
-        presetGameMap.addPoint(0, 2, SurfaceType.DIRT);
-        presetGameMap.addPoint(0, 3, SurfaceType.DIRT);
-        presetGameMap.addPoint(0, 4, SurfaceType.EARTH);
-        presetGameMap.addPoint(0, 5, SurfaceType.EARTH);
-        presetGameMap.addPoint(0, 6, SurfaceType.EARTH);
-        presetGameMap.addPoint(0, 7, SurfaceType.EARTH);
+        presetSurfaceMap = new SurfaceMap(100, 100);
+        presetSurfaceMap.addPoint(0, 0, SurfaceType.ASPHALT);
+        presetSurfaceMap.addPoint(0, 1, SurfaceType.DIRT);
+        presetSurfaceMap.addPoint(0, 2, SurfaceType.DIRT);
+        presetSurfaceMap.addPoint(0, 3, SurfaceType.DIRT);
+        presetSurfaceMap.addPoint(0, 4, SurfaceType.EARTH);
+        presetSurfaceMap.addPoint(0, 5, SurfaceType.EARTH);
+        presetSurfaceMap.addPoint(0, 6, SurfaceType.EARTH);
+        presetSurfaceMap.addPoint(0, 7, SurfaceType.EARTH);
 
-        presetGameMap.addPoint(1, 0, SurfaceType.EARTH);
-        presetGameMap.addPoint(1, 1, SurfaceType.ASPHALT);
-        presetGameMap.addPoint(1, 2, SurfaceType.ASPHALT);
-        presetGameMap.addPoint(1, 3, SurfaceType.SAND);
-        presetGameMap.addPoint(1, 4, SurfaceType.EARTH);
-        presetGameMap.addPoint(1, 5, SurfaceType.SAND);
-        presetGameMap.addPoint(1, 6, SurfaceType.SAND);
-        presetGameMap.addPoint(1, 7, SurfaceType.SAND);
+        presetSurfaceMap.addPoint(1, 0, SurfaceType.EARTH);
+        presetSurfaceMap.addPoint(1, 1, SurfaceType.ASPHALT);
+        presetSurfaceMap.addPoint(1, 2, SurfaceType.ASPHALT);
+        presetSurfaceMap.addPoint(1, 3, SurfaceType.SAND);
+        presetSurfaceMap.addPoint(1, 4, SurfaceType.EARTH);
+        presetSurfaceMap.addPoint(1, 5, SurfaceType.SAND);
+        presetSurfaceMap.addPoint(1, 6, SurfaceType.SAND);
+        presetSurfaceMap.addPoint(1, 7, SurfaceType.SAND);
 
-        presetGameMap.addPoint(2, 0, SurfaceType.SAND);
-        presetGameMap.addPoint(2, 1, SurfaceType.SAND);
-        presetGameMap.addPoint(2, 2, SurfaceType.SAND);
-        presetGameMap.addPoint(2, 3, SurfaceType.ASPHALT);
-        presetGameMap.addPoint(2, 4, SurfaceType.SAND);
-        presetGameMap.addPoint(2, 5, SurfaceType.WATER);
-        presetGameMap.addPoint(2, 6, SurfaceType.WATER);
-        presetGameMap.addPoint(2, 7, SurfaceType.WATER);
+        presetSurfaceMap.addPoint(2, 0, SurfaceType.SAND);
+        presetSurfaceMap.addPoint(2, 1, SurfaceType.SAND);
+        presetSurfaceMap.addPoint(2, 2, SurfaceType.SAND);
+        presetSurfaceMap.addPoint(2, 3, SurfaceType.ASPHALT);
+        presetSurfaceMap.addPoint(2, 4, SurfaceType.SAND);
+        presetSurfaceMap.addPoint(2, 5, SurfaceType.WATER);
+        presetSurfaceMap.addPoint(2, 6, SurfaceType.WATER);
+        presetSurfaceMap.addPoint(2, 7, SurfaceType.WATER);
 
-        presetGameMap.addPoint(3, 0, SurfaceType.WATER);
-        presetGameMap.addPoint(3, 1, SurfaceType.WATER);
-        presetGameMap.addPoint(3, 2, SurfaceType.WATER);
-        presetGameMap.addPoint(3, 3, SurfaceType.CONCRETE);
-        presetGameMap.addPoint(3, 4, SurfaceType.WATER);
-        presetGameMap.addPoint(3, 5, SurfaceType.WATER);
-        presetGameMap.addPoint(3, 6, SurfaceType.WATER);
-        presetGameMap.addPoint(3, 7, SurfaceType.WATER);
+        presetSurfaceMap.addPoint(3, 0, SurfaceType.WATER);
+        presetSurfaceMap.addPoint(3, 1, SurfaceType.WATER);
+        presetSurfaceMap.addPoint(3, 2, SurfaceType.WATER);
+        presetSurfaceMap.addPoint(3, 3, SurfaceType.CONCRETE);
+        presetSurfaceMap.addPoint(3, 4, SurfaceType.WATER);
+        presetSurfaceMap.addPoint(3, 5, SurfaceType.WATER);
+        presetSurfaceMap.addPoint(3, 6, SurfaceType.WATER);
+        presetSurfaceMap.addPoint(3, 7, SurfaceType.WATER);
 
-        presetGameMap.addPoint(4, 0, SurfaceType.WATER);
-        presetGameMap.addPoint(4, 1, SurfaceType.WATER);
-        presetGameMap.addPoint(4, 2, SurfaceType.WATER);
-        presetGameMap.addPoint(4, 3, SurfaceType.CONCRETE);
-        presetGameMap.addPoint(4, 4, SurfaceType.WATER);
-        presetGameMap.addPoint(4, 5, SurfaceType.WATER);
-        presetGameMap.addPoint(4, 6, SurfaceType.WATER);
-        presetGameMap.addPoint(4, 7, SurfaceType.WATER);
+        presetSurfaceMap.addPoint(4, 0, SurfaceType.WATER);
+        presetSurfaceMap.addPoint(4, 1, SurfaceType.WATER);
+        presetSurfaceMap.addPoint(4, 2, SurfaceType.WATER);
+        presetSurfaceMap.addPoint(4, 3, SurfaceType.CONCRETE);
+        presetSurfaceMap.addPoint(4, 4, SurfaceType.WATER);
+        presetSurfaceMap.addPoint(4, 5, SurfaceType.WATER);
+        presetSurfaceMap.addPoint(4, 6, SurfaceType.WATER);
+        presetSurfaceMap.addPoint(4, 7, SurfaceType.WATER);
 
-        presetGameMap.addPoint(5, 0, SurfaceType.WATER);
-        presetGameMap.addPoint(5, 1, SurfaceType.WATER);
-        presetGameMap.addPoint(5, 2, SurfaceType.WATER);
-        presetGameMap.addPoint(5, 3, SurfaceType.CONCRETE);
-        presetGameMap.addPoint(5, 4, SurfaceType.WATER);
-        presetGameMap.addPoint(5, 5, SurfaceType.SAND);
-        presetGameMap.addPoint(5, 6, SurfaceType.SAND);
-        presetGameMap.addPoint(5, 7, SurfaceType.SAND);
+        presetSurfaceMap.addPoint(5, 0, SurfaceType.WATER);
+        presetSurfaceMap.addPoint(5, 1, SurfaceType.WATER);
+        presetSurfaceMap.addPoint(5, 2, SurfaceType.WATER);
+        presetSurfaceMap.addPoint(5, 3, SurfaceType.CONCRETE);
+        presetSurfaceMap.addPoint(5, 4, SurfaceType.WATER);
+        presetSurfaceMap.addPoint(5, 5, SurfaceType.SAND);
+        presetSurfaceMap.addPoint(5, 6, SurfaceType.SAND);
+        presetSurfaceMap.addPoint(5, 7, SurfaceType.SAND);
 
-        presetGameMap.addPoint(6, 0, SurfaceType.SAND);
-        presetGameMap.addPoint(6, 1, SurfaceType.SAND);
-        presetGameMap.addPoint(6, 2, SurfaceType.SAND);
-        presetGameMap.addPoint(6, 3, SurfaceType.ASPHALT);
-        presetGameMap.addPoint(6, 4, SurfaceType.SAND);
-        presetGameMap.addPoint(6, 5, SurfaceType.DIRT);
-        presetGameMap.addPoint(6, 6, SurfaceType.ASPHALT);
-        presetGameMap.addPoint(6, 7, SurfaceType.ASPHALT);
+        presetSurfaceMap.addPoint(6, 0, SurfaceType.SAND);
+        presetSurfaceMap.addPoint(6, 1, SurfaceType.SAND);
+        presetSurfaceMap.addPoint(6, 2, SurfaceType.SAND);
+        presetSurfaceMap.addPoint(6, 3, SurfaceType.ASPHALT);
+        presetSurfaceMap.addPoint(6, 4, SurfaceType.SAND);
+        presetSurfaceMap.addPoint(6, 5, SurfaceType.DIRT);
+        presetSurfaceMap.addPoint(6, 6, SurfaceType.ASPHALT);
+        presetSurfaceMap.addPoint(6, 7, SurfaceType.ASPHALT);
 
-        presetGameMap.addPoint(7, 0, SurfaceType.DIRT);
-        presetGameMap.addPoint(7, 1, SurfaceType.DIRT);
-        presetGameMap.addPoint(7, 2, SurfaceType.DIRT);
-        presetGameMap.addPoint(7, 3, SurfaceType.DIRT);
-        presetGameMap.addPoint(7, 4, SurfaceType.ASPHALT);
-        presetGameMap.addPoint(7, 5, SurfaceType.ASPHALT);
-        presetGameMap.addPoint(7, 6, SurfaceType.DIRT);
-        presetGameMap.addPoint(7, 7, SurfaceType.DIRT);
-//        for (int i=0; i<presetGameMap.getWidth())
-//        presetGameMap.printMap();
-//        presetGameMap.getRoute(new Coordinates(0,3), new Coordinates(3,3), RoutingPredicate.SURFACE_DEFAULT);
-
+        presetSurfaceMap.addPoint(7, 0, SurfaceType.DIRT);
+        presetSurfaceMap.addPoint(7, 1, SurfaceType.DIRT);
+        presetSurfaceMap.addPoint(7, 2, SurfaceType.DIRT);
+        presetSurfaceMap.addPoint(7, 3, SurfaceType.DIRT);
+        presetSurfaceMap.addPoint(7, 4, SurfaceType.ASPHALT);
+        presetSurfaceMap.addPoint(7, 5, SurfaceType.ASPHALT);
+        presetSurfaceMap.addPoint(7, 6, SurfaceType.DIRT);
+        presetSurfaceMap.addPoint(7, 7, SurfaceType.DIRT);
+        unitsMap = new UnitsMap(presetSurfaceMap);
+        unitsMap.addUnit(new Unit("Hero", 15.0, new Coordinates(0,0), RoutingPredicate.SURFACE_DEFAULT));
     }
 }

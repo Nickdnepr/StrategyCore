@@ -1,7 +1,6 @@
-package com.nickdnepr.strategy.map;
+package com.nickdnepr.strategy.map.routing;
 
-import com.nickdnepr.strategy.map.routing.PointWeightContainer;
-import com.nickdnepr.strategy.map.routing.Route;
+import com.nickdnepr.strategy.map.surface.SurfaceType;
 import com.nickdnepr.strategy.map.routing.graphComponents.Point;
 import com.nickdnepr.strategy.map.routing.graphComponents.Rib;
 

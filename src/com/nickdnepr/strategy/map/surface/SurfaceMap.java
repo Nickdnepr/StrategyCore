@@ -1,21 +1,23 @@
-package com.nickdnepr.strategy.map;
+package com.nickdnepr.strategy.map.surface;
 
+import com.nickdnepr.strategy.map.Coordinates;
 import com.nickdnepr.strategy.map.routing.Graph;
 import com.nickdnepr.strategy.map.routing.Route;
+import com.nickdnepr.strategy.map.routing.RoutingPredicate;
 import com.nickdnepr.strategy.map.routing.graphComponents.Point;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class GameMap {
+public class SurfaceMap {
 
-    private Point[][] gameMap;
+    private Point[][] surfaceMap;
     private List<Point> points;
     private int width;
     private int height;
 
-    public GameMap(int width, int height) {
-        gameMap = new Point[height][width];
+    public SurfaceMap(int width, int height) {
+        surfaceMap = new Point[height][width];
         points = new ArrayList<>();
         this.width = width;
         this.height = height;
@@ -25,11 +27,11 @@ public class GameMap {
         if (points.contains(point)) {
             throw new IllegalArgumentException("cannot add the same point twice");
         }
-        if (gameMap[point.getCoordinates().getY()][point.getCoordinates().getX()] != null) {
+        if (surfaceMap[point.getCoordinates().getY()][point.getCoordinates().getX()] != null) {
             throw new IllegalArgumentException("this coordinates are already assigned by another point");
         }
         points.add(point);
-        gameMap[point.getCoordinates().getY()][point.getCoordinates().getX()] = point;
+        surfaceMap[point.getCoordinates().getY()][point.getCoordinates().getX()] = point;
     }
 
     public Point addPoint(int x, int y, SurfaceType surfaceType) {
@@ -42,16 +44,16 @@ public class GameMap {
     public void printMap() {
         System.out.print("   ");
 
-        for (int i = 0; i < gameMap[0].length; i++) {
+        for (int i = 0; i < surfaceMap[0].length; i++) {
             System.out.print(i + "  ");
         }
         System.out.println("X");
 
-        for (int i = 0; i < gameMap.length; i++) {
+        for (int i = 0; i < surfaceMap.length; i++) {
             System.out.print(i + "  ");
-            for (int j = 0; j < gameMap[i].length; j++) {
-                if (gameMap[i][j] != null) {
-                    System.out.print(gameMap[i][j].getSurfaceType().getDrawingString());
+            for (int j = 0; j < surfaceMap[i].length; j++) {
+                if (surfaceMap[i][j] != null) {
+                    System.out.print(surfaceMap[i][j].getSurfaceType().getDrawingString());
                 } else {
                     System.out.print('*');
                 }
@@ -63,18 +65,17 @@ public class GameMap {
         System.out.println();
     }
 
-    public Graph getRoutingGraph(RoutingPredicate predicate, Coordinates start) {
+    private Graph getRoutingGraph(RoutingPredicate predicate, Coordinates start) {
         Graph graph = new Graph("tmp");
 
         int[][] checkedMatrix = new int[height][width];
         List<Coordinates> possibleOnes = new ArrayList<>();
         List<Point> areaOfRouting = new ArrayList<>();
-        System.out.println(gameMap[start.getY()][start.getX()].getSurfaceType());
-        if (predicate.validatePoint(gameMap[start.getY()][start.getX()])) {
+        if (predicate.validatePoint(surfaceMap[start.getY()][start.getX()])) {
             checkedMatrix[start.getY()][start.getX()] = 1;
             possibleOnes.add(start);
-            areaOfRouting.add(gameMap[start.getY()][start.getX()]);
-            graph.addPoint(gameMap[start.getY()][start.getX()]);
+            areaOfRouting.add(surfaceMap[start.getY()][start.getX()]);
+            graph.addPoint(surfaceMap[start.getY()][start.getX()]);
         } else {
             System.out.println("start of the route is not valid");
             return null;
@@ -85,12 +86,12 @@ public class GameMap {
             Coordinates currentOne = possibleOnes.get(0);
 
             for (Coordinates neighbour : getPossibleNeighbours(checkedMatrix, currentOne)) {
-                if (predicate.validatePoint(gameMap[neighbour.getY()][neighbour.getX()])) {
-                    graph.addPoint(gameMap[neighbour.getY()][neighbour.getX()]);
+                if (predicate.validatePoint(surfaceMap[neighbour.getY()][neighbour.getX()])) {
+                    graph.addPoint(surfaceMap[neighbour.getY()][neighbour.getX()]);
                     checkedMatrix[neighbour.getY()][neighbour.getX()] = 1;
                     possibleOnes.add(neighbour);
-                    areaOfRouting.add(gameMap[neighbour.getY()][neighbour.getX()]);
-                    addRibsForPoint(graph, gameMap[neighbour.getY()][neighbour.getX()], areaOfRouting);
+                    areaOfRouting.add(surfaceMap[neighbour.getY()][neighbour.getX()]);
+                    addRibsForPoint(graph, surfaceMap[neighbour.getY()][neighbour.getX()], areaOfRouting);
                 } else {
                     checkedMatrix[neighbour.getY()][neighbour.getX()] = -1;
                 }
@@ -104,15 +105,15 @@ public class GameMap {
     }
 
     public Route getRoute(Coordinates start, Coordinates end, RoutingPredicate predicate) {
-        if (gameMap[start.getY()][start.getX()] == null || gameMap[end.getY()][end.getX()] == null) {
+        if (surfaceMap[start.getY()][start.getX()] == null || surfaceMap[end.getY()][end.getX()] == null) {
             System.out.println("Not exists");
             return null;
         }
         Graph graph = getRoutingGraph(predicate, start);
-        if (graph==null){
+        if (graph == null) {
             return null;
         }
-        return graph.getRoute(gameMap[start.getY()][start.getX()], gameMap[end.getY()][end.getX()], predicate);
+        return graph.getRoute(surfaceMap[start.getY()][start.getX()], surfaceMap[end.getY()][end.getX()], predicate);
     }
 
     private List<Coordinates> getPossibleNeighbours(int[][] checkedMatrix, Coordinates currentPosition) {
@@ -122,18 +123,18 @@ public class GameMap {
         if (currentPosition.getX() > 0) {
             canGoLeft = true;
             if (checkedMatrix[currentPosition.getY()][currentPosition.getX() - 1] == 0) {
-                resultList.add(new Coordinates(currentPosition.getX()-1, currentPosition.getY()));
+                resultList.add(new Coordinates(currentPosition.getX() - 1, currentPosition.getY()));
             }
         }
         if (currentPosition.getX() < width - 1) {
             canGoRight = true;
             if (checkedMatrix[currentPosition.getY()][currentPosition.getX() + 1] == 0) {
-                resultList.add(new Coordinates(currentPosition.getX()+1, currentPosition.getY()));
+                resultList.add(new Coordinates(currentPosition.getX() + 1, currentPosition.getY()));
             }
         }
         if (currentPosition.getY() > 0) {
             if (checkedMatrix[currentPosition.getY() - 1][currentPosition.getX()] == 0) {
-                resultList.add(new Coordinates(currentPosition.getX(), currentPosition.getY()-1));
+                resultList.add(new Coordinates(currentPosition.getX(), currentPosition.getY() - 1));
             }
             if (canGoLeft) {
                 if (checkedMatrix[currentPosition.getY() - 1][currentPosition.getX() - 1] == 0) {
@@ -148,7 +149,7 @@ public class GameMap {
         }
         if (currentPosition.getY() < height - 1) {
             if (checkedMatrix[currentPosition.getY() + 1][currentPosition.getX()] == 0) {
-                resultList.add(new Coordinates(currentPosition.getX(), currentPosition.getY()+1));
+                resultList.add(new Coordinates(currentPosition.getX(), currentPosition.getY() + 1));
             }
             if (canGoLeft) {
                 if (checkedMatrix[currentPosition.getY() + 1][currentPosition.getX() - 1] == 0) {
@@ -189,9 +190,12 @@ public class GameMap {
     }
 
     public Point getPoint(int x, int y) {
-        return gameMap[y][x];
+        return surfaceMap[y][x];
     }
 
+    public Point getPoint(Coordinates coordinates) {
+        return getPoint(coordinates.getX(), coordinates.getY());
+    }
 
     public List<Point> getPoints() {
         return points;

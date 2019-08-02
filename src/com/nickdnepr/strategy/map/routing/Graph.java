@@ -2,7 +2,6 @@ package com.nickdnepr.strategy.map.routing;
 
 import com.nickdnepr.strategy.map.routing.graphComponents.Point;
 import com.nickdnepr.strategy.map.routing.graphComponents.Rib;
-import com.nickdnepr.strategy.map.RoutingPredicate;
 
 import java.io.*;
 import java.util.ArrayList;

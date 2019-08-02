@@ -1,122 +1,47 @@
 package com.nickdnepr.strategy.models;
 
-import java.util.LinkedHashMap;
+import com.nickdnepr.strategy.map.Coordinates;
+import com.nickdnepr.strategy.map.routing.Route;
+import com.nickdnepr.strategy.map.routing.RoutingPredicate;
 
 public class Unit {
 
-    //global info
-    private long id;
-    private boolean isTransport;
-    //defence and health
-    private double health;
-    private double maxHealthPercent;
-    private double defence;
-    private double explosiveDefence;
-    private double armor;
-    private double armorQuality;
-    //attack
-    private LinkedHashMap<Long, Weapon> weapons;
-    private double experience;
-    //action
+    private final long id;
+    private String title;
     private double actionPoints;
-    //transport characteristics
-    private double fuel;
-    private double maxFuel;
+    private double maxActionPoints;
+    private Coordinates coordinates;
+    private RoutingPredicate routingPredicate;
+    private Route destinationRoute;
 
-    public Unit(long id, boolean isTransport, double health, double maxHealthPercent, double defence, double explosiveDefence, double armor, double armorQuality, LinkedHashMap<Long, Weapon> weapons, double experience, double actionPoints, double fuel, double maxFuel) {
-        this.id = id;
-        this.isTransport = isTransport;
-        this.health = health;
-        this.maxHealthPercent = maxHealthPercent;
-        this.defence = defence;
-        this.explosiveDefence = explosiveDefence;
-        this.armor = armor;
-        this.armorQuality = armorQuality;
-        this.weapons = weapons;
-        this.experience = experience;
+    public Unit(String title, double actionPoints, Coordinates coordinates, RoutingPredicate routingPredicate) {
+        this.id = System.currentTimeMillis();
+        this.title = title;
         this.actionPoints = actionPoints;
-        this.fuel = fuel;
-        this.maxFuel = maxFuel;
+        this.maxActionPoints = actionPoints;
+        this.coordinates = coordinates;
+        this.routingPredicate = routingPredicate;
+    }
+
+    public Unit(String title, double actionPoints, double maxActionPoints, Coordinates coordinates, RoutingPredicate routingPredicate) {
+        this.id = System.currentTimeMillis();
+        this.title = title;
+        this.actionPoints = actionPoints;
+        this.maxActionPoints = maxActionPoints;
+        this.coordinates = coordinates;
+        this.routingPredicate = routingPredicate;
     }
 
     public long getId() {
         return id;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public String getTitle() {
+        return title;
     }
 
-    public boolean isTransport() {
-        return isTransport;
-    }
-
-    public void setTransport(boolean transport) {
-        isTransport = transport;
-    }
-
-    public double getHealth() {
-        return health;
-    }
-
-    public void setHealth(double health) {
-        this.health = health;
-    }
-
-    public double getMaxHealthPercent() {
-        return maxHealthPercent;
-    }
-
-    public void setMaxHealthPercent(double maxHealthPercent) {
-        this.maxHealthPercent = maxHealthPercent;
-    }
-
-    public double getDefence() {
-        return defence;
-    }
-
-    public void setDefence(double defence) {
-        this.defence = defence;
-    }
-
-    public double getExplosiveDefence() {
-        return explosiveDefence;
-    }
-
-    public void setExplosiveDefence(double explosiveDefence) {
-        this.explosiveDefence = explosiveDefence;
-    }
-
-    public double getArmor() {
-        return armor;
-    }
-
-    public void setArmor(double armor) {
-        this.armor = armor;
-    }
-
-    public double getArmorQuality() {
-        return armorQuality;
-    }
-
-    public void setArmorQuality(double armorQuality) {
-        this.armorQuality = armorQuality;
-    }
-
-    public LinkedHashMap<Long, Weapon> getWeapons() {
-        return weapons;
-    }
-
-    public void setWeapons(LinkedHashMap<Long, Weapon> weapons) {
-        this.weapons = weapons;
-    }
-
-    public double getExperience() {
-        return experience;
-    }
-
-    public void setExperience(double experience) {
-        this.experience = experience;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public double getActionPoints() {
@@ -127,19 +52,45 @@ public class Unit {
         this.actionPoints = actionPoints;
     }
 
-    public double getFuel() {
-        return fuel;
+    public Coordinates getCoordinates() {
+        return coordinates;
     }
 
-    public void setFuel(double fuel) {
-        this.fuel = fuel;
+    public void setCoordinates(Coordinates coordinates) {
+        this.coordinates = coordinates;
     }
 
-    public double getMaxFuel() {
-        return maxFuel;
+    public RoutingPredicate getRoutingPredicate() {
+        return routingPredicate;
     }
 
-    public void setMaxFuel(double maxFuel) {
-        this.maxFuel = maxFuel;
+    public void setRoutingPredicate(RoutingPredicate routingPredicate) {
+        this.routingPredicate = routingPredicate;
+    }
+
+    public Route getDestinationRoute() {
+        return destinationRoute;
+    }
+
+    public void setDestinationRoute(Route destinationRoute) {
+        this.destinationRoute = destinationRoute;
+    }
+
+    public double getMaxActionPoints() {
+        return maxActionPoints;
+    }
+
+    public void setMaxActionPoints(double maxActionPoints) {
+        this.maxActionPoints = maxActionPoints;
+    }
+
+    @Override
+    public String toString() {
+        return "Unit{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", actionPoints=" + actionPoints +
+                ", coordinates=" + coordinates +
+                '}';
     }
 }

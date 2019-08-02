@@ -63,5 +63,8 @@ public class Coordinates implements Serializable {
                 ;
     }
 
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y, height);
+    }
 }

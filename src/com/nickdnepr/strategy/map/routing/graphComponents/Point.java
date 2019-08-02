@@ -1,8 +1,7 @@
 package com.nickdnepr.strategy.map.routing.graphComponents;
 
 import com.nickdnepr.strategy.map.Coordinates;
-import com.nickdnepr.strategy.map.SurfaceType;
-import com.nickdnepr.strategy.models.Unit;
+import com.nickdnepr.strategy.map.surface.SurfaceType;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -15,7 +14,6 @@ public class Point implements Serializable {
     private List<Rib> outComingRibs;
     private List<Rib> incomingRibs;
     private Coordinates coordinates;
-    private Unit holdingUnit;
 
     public Point(String qualifier, SurfaceType surfaceType, List<Rib> outComingRibs, List<Rib> incomingRibs) {
         this.qualifier = qualifier;
@@ -112,14 +110,6 @@ public class Point implements Serializable {
 
     public void setCoordinates(Coordinates coordinates) {
         this.coordinates = coordinates;
-    }
-
-    public Unit getHoldingUnit() {
-        return holdingUnit;
-    }
-
-    public void setHoldingUnit(Unit holdingUnit) {
-        this.holdingUnit = holdingUnit;
     }
 
     @Override

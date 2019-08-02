@@ -46,12 +46,18 @@ public class PointWeightContainer {
         this.processed = processed;
     }
 
+//    @Override
+//    public String toString() {
+//        return "PointWeightContainer{" +
+//                "point=" + point +
+//                ", shortestRouteLength=" + shortestRouteLength +
+//                ", processed=" + processed +
+//                '}';
+//    }
+
+
     @Override
     public String toString() {
-        return "PointWeightContainer{" +
-                "point=" + point +
-                ", shortestRouteLength=" + shortestRouteLength +
-                ", processed=" + processed +
-                '}';
+        return point.getQualifier()+" - "+shortestRouteLength;
     }
 }
