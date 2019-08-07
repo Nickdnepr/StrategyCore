@@ -5,6 +5,7 @@ import com.nickdnepr.strategy.map.routing.Graph;
 import com.nickdnepr.strategy.map.routing.Route;
 import com.nickdnepr.strategy.map.routing.RoutingPredicate;
 import com.nickdnepr.strategy.map.routing.graphComponents.Point;
+import com.nickdnepr.strategy.map.routing.graphComponents.Rib;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +42,13 @@ public class SurfaceMap {
         return point;
     }
 
+    public Point addPoint(int x, int y, double height, SurfaceType surfaceType) {
+        String qualifier = x + "_" + y;
+        Point point = new Point(qualifier, surfaceType, x, y, height);
+        addPoint(point);
+        return point;
+    }
+
     public void printMap() {
         System.out.print("   ");
 
@@ -66,7 +74,7 @@ public class SurfaceMap {
     }
 
     private Graph getRoutingGraph(RoutingPredicate predicate, Coordinates start) {
-        Graph graph = new Graph("tmp");
+        Graph graph = new Graph("routingGraph");
 
         int[][] checkedMatrix = new int[height][width];
         List<Coordinates> possibleOnes = new ArrayList<>();
@@ -79,19 +87,20 @@ public class SurfaceMap {
         } else {
             System.out.println("start of the route is not valid");
             return null;
-//            throw new IllegalArgumentException("start of the route is not valid");
         }
 
         while (!possibleOnes.isEmpty()) {
             Coordinates currentOne = possibleOnes.get(0);
-
             for (Coordinates neighbour : getPossibleNeighbours(checkedMatrix, currentOne)) {
                 if (predicate.validatePoint(surfaceMap[neighbour.getY()][neighbour.getX()])) {
-                    graph.addPoint(surfaceMap[neighbour.getY()][neighbour.getX()]);
-                    checkedMatrix[neighbour.getY()][neighbour.getX()] = 1;
-                    possibleOnes.add(neighbour);
-                    areaOfRouting.add(surfaceMap[neighbour.getY()][neighbour.getX()]);
-                    addRibsForPoint(graph, surfaceMap[neighbour.getY()][neighbour.getX()], areaOfRouting);
+//                    System.out.println(predicate.validateRib(new Rib(getPoint(currentOne), getPoint(neighbour))));
+                    if (predicate.validateRib(new Rib(getPoint(currentOne), getPoint(neighbour)))) {
+                        graph.addPoint(surfaceMap[neighbour.getY()][neighbour.getX()]);
+                        checkedMatrix[neighbour.getY()][neighbour.getX()] = 1;
+                        possibleOnes.add(neighbour);
+                        areaOfRouting.add(surfaceMap[neighbour.getY()][neighbour.getX()]);
+                        addRibsForPoint(graph, surfaceMap[neighbour.getY()][neighbour.getX()], areaOfRouting);
+                    }
                 } else {
                     checkedMatrix[neighbour.getY()][neighbour.getX()] = -1;
                 }
@@ -165,6 +174,7 @@ public class SurfaceMap {
         return resultList;
     }
 
+    //TODO rebuild price calculation
     private void addRibsForPoint(Graph graph, Point addedPoint, List<Point> knownArea) {
         for (Point p : knownArea) {
             int deltaX = Math.abs(p.getCoordinates().getX() - addedPoint.getCoordinates().getX());

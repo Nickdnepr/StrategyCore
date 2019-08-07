@@ -6,13 +6,19 @@ import com.nickdnepr.strategy.map.routing.graphComponents.Rib;
 
 public interface RoutingPredicate {
 
+    int INVALID_RIB_PRICE = 100000;
+
     RoutingPredicate SURFACE_DEFAULT = new RoutingPredicate() {
         @Override
         public double getResultingPrice(Rib rib) {
             if (rib.getDestination().getSurfaceType() == SurfaceType.WATER) {
-                return 1000000000;
+                return INVALID_RIB_PRICE;
             }
-            return rib.getPrice();
+            double heightDifference = rib.getDestination().getCoordinates().getHeight() - rib.getSource().getCoordinates().getHeight();
+            if (heightDifference > 1 || heightDifference < -1) {
+                return INVALID_RIB_PRICE;
+            }
+            return rib.getPrice() * Math.pow(1.2, heightDifference);
         }
 
         @Override
@@ -50,7 +56,7 @@ public interface RoutingPredicate {
 
         @Override
         public boolean validatePoint(Point point) {
-            return point!=null;
+            return point != null;
         }
     };
 
@@ -59,4 +65,8 @@ public interface RoutingPredicate {
     boolean validateRoute(Route route);
 
     boolean validatePoint(Point point);
+
+    default boolean validateRib(Rib rib){
+        return getResultingPrice(rib)!=INVALID_RIB_PRICE;
+    }
 }

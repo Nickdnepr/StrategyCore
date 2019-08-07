@@ -28,7 +28,7 @@ public class Graph implements Serializable {
         return false;
     }
 
-    private boolean addRib(Rib rib) {
+    public boolean addRib(Rib rib) {
         if (ribs.get(rib.getQualifier()) == null) {
             ribs.put(rib.getQualifier(), rib);
             return true;

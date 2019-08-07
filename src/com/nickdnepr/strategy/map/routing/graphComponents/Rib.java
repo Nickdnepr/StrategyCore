@@ -19,6 +19,15 @@ public class Rib implements Serializable {
         destination.addInComingRib(this);
     }
 
+    public Rib(Point source, Point destination) {
+        this.qualifier = source.getQualifier() + "->" + destination.getQualifier();
+        this.source = source;
+        this.destination = destination;
+        this.price = isCorner() ? 1.41 : 1;
+        source.addOutComingRib(this);
+        destination.addInComingRib(this);
+    }
+
     public boolean isCorner() {
         return Math.abs(source.getCoordinates().getX() - destination.getCoordinates().getX()) == 1 && Math.abs(source.getCoordinates().getY() - destination.getCoordinates().getY()) == 1;
     }

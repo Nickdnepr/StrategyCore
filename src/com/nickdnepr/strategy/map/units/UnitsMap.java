@@ -108,7 +108,7 @@ public class UnitsMap {
         }
         while (unit.getActionPoints() > 0) {
             if (unit.getDestinationRoute().getWayPoints().isEmpty()) {
-                unit.setDestinationRoute(null   );
+                unit.setDestinationRoute(null);
                 return;
             }
             if (unit.getActionPoints() < unit.getDestinationRoute().getWayPoints().get(0).getShortestRouteLength()) {
@@ -147,5 +147,12 @@ public class UnitsMap {
 
     public SurfaceMap getSurfaceMap() {
         return surfaceMap;
+    }
+
+    public void endRound() {
+        unitsBase.values().forEach(unit -> {
+            unit.setActionPoints(unit.getMaxActionPoints());
+        });
+        System.out.println("New round");
     }
 }
