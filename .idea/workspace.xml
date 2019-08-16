@@ -6,20 +6,69 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7b6a9a6-a758-4c5d-9d29-98e8dcb075e0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="d7b6a9a6-a758-4c5d-9d29-98e8dcb075e0" name="Default Changelist" comment="- added maven support&#10;- added basics of teams&#10;- fixed id generation mechanisms">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/map/Coordinates.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/map/routing/Graph.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/map/routing/PointWeightContainer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/map/routing/Route.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/map/routing/RoutingPredicate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/map/routing/RoutingType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/map/routing/graphComponents/Point.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/map/routing/graphComponents/Rib.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/map/surface/SurfaceMap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/map/surface/SurfaceType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/map/units/UnitsMap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/map/units/actions/UnitAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/models/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/models/Unit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/models/Weapon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/utils/InputRange.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/utils/MapDrawer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/utils/Strings.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/utils/UnitMovesDrawer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StrategyCore/com/nickdnepr/strategy/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StrategyCore/com/nickdnepr/strategy/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/nickdnepr/strategy/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nickdnepr/strategy/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/nickdnepr/strategy/map/routing/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nickdnepr/strategy/map/routing/Graph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/nickdnepr/strategy/map/routing/RoutingPredicate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nickdnepr/strategy/map/routing/RoutingPredicate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/nickdnepr/strategy/map/routing/graphComponents/Rib.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nickdnepr/strategy/map/routing/graphComponents/Rib.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/nickdnepr/strategy/map/surface/SurfaceMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nickdnepr/strategy/map/surface/SurfaceMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/nickdnepr/strategy/map/units/UnitsMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nickdnepr/strategy/map/units/UnitsMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/nickdnepr/strategy/utils/MapDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nickdnepr/strategy/utils/MapDrawer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/nickdnepr/strategy/utils/Strings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nickdnepr/strategy/utils/Strings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StrategyCore.iml" beforeDir="false" afterPath="$PROJECT_DIR$/StrategyCore.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StrategyCore/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StrategyCore/com/nickdnepr/strategy/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StrategyCore/com/nickdnepr/strategy/map/Coordinates.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StrategyCore/com/nickdnepr/strategy/map/routing/Graph.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StrategyCore/com/nickdnepr/strategy/map/routing/PointWeightContainer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StrategyCore/com/nickdnepr/strategy/map/routing/Route.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StrategyCore/com/nickdnepr/strategy/map/routing/RoutingType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StrategyCore/com/nickdnepr/strategy/map/routing/graphComponents/Point.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StrategyCore/com/nickdnepr/strategy/map/routing/graphComponents/Rib.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StrategyCore/com/nickdnepr/strategy/models/Unit.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StrategyCore/com/nickdnepr/strategy/models/Weapon.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StrategyCore/com/nickdnepr/strategy/utils/InputRange.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/StrategyCore/com/nickdnepr/strategy/utils/Strings.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nickdnepr/strategy/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nickdnepr/strategy/map/Coordinates.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nickdnepr/strategy/map/routing/Graph.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nickdnepr/strategy/map/routing/PointWeightContainer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nickdnepr/strategy/map/routing/Route.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nickdnepr/strategy/map/routing/RoutingPredicate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nickdnepr/strategy/map/routing/RoutingType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nickdnepr/strategy/map/routing/graphComponents/Point.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nickdnepr/strategy/map/routing/graphComponents/Rib.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nickdnepr/strategy/map/surface/SurfaceMap.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nickdnepr/strategy/map/surface/SurfaceType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nickdnepr/strategy/map/units/UnitsMap.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nickdnepr/strategy/map/units/actions/UnitAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nickdnepr/strategy/models/Unit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nickdnepr/strategy/models/Weapon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nickdnepr/strategy/utils/InputRange.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nickdnepr/strategy/utils/MapDrawer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nickdnepr/strategy/utils/Strings.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nickdnepr/strategy/utils/UnitMovesDrawer.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,16 +90,15 @@
     <select />
   </component>
   <component name="DefaultGradleProjectSettings">
-    <option name="testRunner" value="GRADLE" />
-    <option name="delegatedBuild" value="true" />
+    <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/nickdnepr/strategy/Main.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="304" lean-forward="true" selection-start-line="304" selection-end-line="304" />
+            <state relative-caret-position="5508">
+              <caret line="324" column="19" selection-start-line="324" selection-start-column="19" selection-end-line="324" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -59,10 +107,120 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/nickdnepr/strategy/utils/Strings.java">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+            <state relative-caret-position="204">
+              <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/utils/UnitMovesDrawer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="51" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/models/Player.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
+              <folding>
+                <element signature="e#231#232#0" expanded="true" />
+                <element signature="e#256#257#0" expanded="true" />
+                <element signature="e#290#291#0" expanded="true" />
+                <element signature="e#318#319#0" expanded="true" />
+                <element signature="e#349#350#0" expanded="true" />
+                <element signature="e#376#377#0" expanded="true" />
+                <element signature="e#416#417#0" expanded="true" />
+                <element signature="e#448#449#0" expanded="true" />
+                <element signature="e#763#764#0" expanded="true" />
+                <element signature="e#802#803#0" expanded="true" />
+                <element signature="e#1051#1052#0" expanded="true" />
+                <element signature="e#1079#1080#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/models/Unit.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-600">
+              <caret line="46" column="29" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1941#1942#0" expanded="true" />
+                <element signature="e#1997#1998#0" expanded="true" />
+                <element signature="e#3304#3305#0" expanded="true" />
+                <element signature="e#3332#3333#0" expanded="true" />
+                <element signature="e#3374#3375#0" expanded="true" />
+                <element signature="e#3408#3409#0" expanded="true" />
+                <element signature="e#3764#3765#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/map/units/UnitsMap.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="207">
+              <caret line="64" column="56" selection-start-line="64" selection-start-column="56" selection-end-line="64" selection-end-column="56" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#905#906#0" expanded="true" />
+                <element signature="e#945#946#0" expanded="true" />
+                <element signature="e#6068#6069#0" expanded="true" />
+                <element signature="e#6102#6103#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_221/jre/lib/ext/nashorn.jar!/jdk/nashorn/internal/ir/debug/ObjectSizeCalculator.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="229" selection-start-line="229" selection-end-line="229" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/map/routing/RoutingPredicate.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="366">
+              <caret line="64" column="39" selection-start-line="64" selection-start-column="39" selection-end-line="64" selection-end-column="39" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_221/src.zip!/java/util/ArrayList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-6">
+              <caret line="656" column="18" selection-start-line="656" selection-start-column="18" selection-end-line="656" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_221/src.zip!/java/util/HashMap.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="197">
+              <caret line="610" column="13" selection-start-line="610" selection-start-column="13" selection-end-line="610" selection-end-column="13" />
+              <folding>
+                <element signature="e#24331#24332#0" expanded="true" />
+                <element signature="e#24396#24397#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -107,20 +265,35 @@
         <option value="$PROJECT_DIR$/src/com/nickdnepr/strategy/map/routing/PointWeightContainer.java" />
         <option value="$PROJECT_DIR$/src/com/nickdnepr/strategy/map/routing/Route.java" />
         <option value="$PROJECT_DIR$/src/com/nickdnepr/strategy/utils/UnitMovesDrawer.java" />
-        <option value="$PROJECT_DIR$/src/com/nickdnepr/strategy/models/Unit.java" />
         <option value="$PROJECT_DIR$/src/com/nickdnepr/strategy/utils/InputRange.java" />
         <option value="$PROJECT_DIR$/src/com/nickdnepr/strategy/map/surface/SurfaceType.java" />
         <option value="$PROJECT_DIR$/src/com/nickdnepr/strategy/map/Coordinates.java" />
-        <option value="$PROJECT_DIR$/src/com/nickdnepr/strategy/map/units/UnitsMap.java" />
         <option value="$PROJECT_DIR$/src/com/nickdnepr/strategy/map/routing/graphComponents/Rib.java" />
         <option value="$PROJECT_DIR$/src/com/nickdnepr/strategy/map/surface/SurfaceMap.java" />
-        <option value="$PROJECT_DIR$/src/com/nickdnepr/strategy/map/routing/RoutingPredicate.java" />
         <option value="$PROJECT_DIR$/src/com/nickdnepr/strategy/map/routing/Graph.java" />
         <option value="$PROJECT_DIR$/src/com/nickdnepr/strategy/utils/MapDrawer.java" />
         <option value="$PROJECT_DIR$/src/com/nickdnepr/strategy/utils/Strings.java" />
         <option value="$PROJECT_DIR$/src/com/nickdnepr/strategy/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/nickdnepr/strategy/models/Unit.java" />
+        <option value="$PROJECT_DIR$/src/com/nickdnepr/strategy/models/Player.java" />
+        <option value="$PROJECT_DIR$/src/com/nickdnepr/strategy/map/routing/RoutingPredicate.java" />
+        <option value="$PROJECT_DIR$/src/com/nickdnepr/strategy/map/units/UnitsMap.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="258" />
@@ -134,6 +307,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -144,100 +318,52 @@
             <path>
               <item name="StrategyCore" type="b2602c69:ProjectViewProjectNode" />
               <item name="StrategyCore" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StrategyCore" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StrategyCore" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StrategyCore" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StrategyCore" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
-              <item name="StrategyCore_jar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StrategyCore" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StrategyCore" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="StrategyCore" type="b2602c69:ProjectViewProjectNode" />
               <item name="StrategyCore" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StrategyCore" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StrategyCore" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StrategyCore" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StrategyCore" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="strategy" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="StrategyCore" type="b2602c69:ProjectViewProjectNode" />
               <item name="StrategyCore" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="strategy" type="462c0819:PsiDirectoryNode" />
-              <item name="map" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StrategyCore" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StrategyCore" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="strategy" type="462c0819:PsiDirectoryNode" />
               <item name="map" type="462c0819:PsiDirectoryNode" />
-              <item name="routing" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="StrategyCore" type="b2602c69:ProjectViewProjectNode" />
               <item name="StrategyCore" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="strategy" type="462c0819:PsiDirectoryNode" />
               <item name="map" type="462c0819:PsiDirectoryNode" />
               <item name="routing" type="462c0819:PsiDirectoryNode" />
-              <item name="graphComponents" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StrategyCore" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StrategyCore" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="strategy" type="462c0819:PsiDirectoryNode" />
-              <item name="map" type="462c0819:PsiDirectoryNode" />
-              <item name="surface" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StrategyCore" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StrategyCore" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="strategy" type="462c0819:PsiDirectoryNode" />
-              <item name="map" type="462c0819:PsiDirectoryNode" />
-              <item name="units" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StrategyCore" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StrategyCore" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="strategy" type="462c0819:PsiDirectoryNode" />
-              <item name="map" type="462c0819:PsiDirectoryNode" />
-              <item name="units" type="462c0819:PsiDirectoryNode" />
-              <item name="actions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StrategyCore" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StrategyCore" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="strategy" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StrategyCore" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StrategyCore" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="strategy" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -249,10 +375,10 @@
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -329,18 +455,29 @@
       <workItem from="1563721388399" duration="383000" />
       <workItem from="1564512167823" duration="5011000" />
       <workItem from="1564951230871" duration="312000" />
-      <workItem from="1565042470251" duration="15696000" />
+      <workItem from="1565042470251" duration="16072000" />
+      <workItem from="1565354424121" duration="2173000" />
+      <workItem from="1565619355232" duration="430000" />
+      <workItem from="1565776785382" duration="704000" />
+      <workItem from="1565872598512" duration="9472000" />
     </task>
+    <task id="LOCAL-00001" summary="- added height map in routing&#10;- some minor fixes in routing &#10;- fixed some map displaying issues">
+      <created>1565191450921</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1565191450922</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="156636000" />
+    <option name="totallyTimeSpent" value="169791000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1215" height="775" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24502164" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2896791" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -349,8 +486,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3296582" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4994664" weight="0.9516129" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3983871" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4994664" weight="0.9514563" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39805827" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -359,7 +496,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32855567" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50053364" side_tool="true" weight="0.32929516" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32855567" />
+      <window_info anchor="bottom" id="Messages" order="12" visible="true" weight="0.32847896" />
       <window_info anchor="bottom" id="Duplicate detector" order="13" weight="0.32929516" />
       <window_info anchor="bottom" id="Statistic" order="14" weight="0.3296582" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -376,6 +513,11 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="- added height map in routing&#10;- some minor fixes in routing &#10;- fixed some map displaying issues" />
+    <MESSAGE value="- added maven support&#10;- added basics of teams&#10;- fixed id generation mechanisms" />
+    <option name="LAST_COMMIT_MESSAGE" value="- added maven support&#10;- added basics of teams&#10;- fixed id generation mechanisms" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="jar://$PROJECT_DIR$/../jdk1.8.0_172/src.zip!/java/util/Comparator.java" />
     <entry file="jar://$PROJECT_DIR$/../jdk1.8.0_172/src.zip!/java/util/LinkedHashMap.java" />
@@ -383,14 +525,14 @@
     <entry file="jar://$PROJECT_DIR$/../jdk1.8.0_172/src.zip!/java/lang/System.java" />
     <entry file="jar://$PROJECT_DIR$/../jdk1.8.0_172/src.zip!/java/util/HashMap.java" />
     <entry file="file://$PROJECT_DIR$/src/com/nickdnepr/strategy/models/components/MovingComponent.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/nickdnepr/strategy/models/Weapon.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/models/Weapon.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nickdnepr/strategy/map/routing/Route.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/map/routing/Route.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" selection-start-line="19" selection-end-line="19" />
@@ -400,19 +542,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nickdnepr/strategy/models/Unit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="885">
-          <caret line="87" column="18" selection-start-line="87" selection-start-column="18" selection-end-line="87" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1941#1942#0" expanded="true" />
-            <element signature="e#1997#1998#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nickdnepr/strategy/map/routing/PointWeightContainer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/map/routing/PointWeightContainer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="23" selection-start-line="23" selection-end-line="23" />
@@ -424,28 +554,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nickdnepr/strategy/utils/UnitMovesDrawer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nickdnepr/strategy/utils/InputRange.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/utils/InputRange.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nickdnepr/strategy/map/surface/SurfaceType.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/map/surface/SurfaceType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="930">
           <caret line="66" column="26" selection-start-line="66" selection-start-column="26" selection-end-line="66" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nickdnepr/strategy/map/units/actions/UnitAction.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/map/units/actions/UnitAction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
@@ -453,41 +576,14 @@
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/../jdk1.8.0_172/javafx-src.zip!/javafx/util/Pair.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/nickdnepr/strategy/map/routing/RoutingType.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/map/routing/RoutingType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nickdnepr/strategy/map/units/UnitsMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="155" column="37" selection-start-line="155" selection-start-column="37" selection-end-line="155" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#905#906#0" expanded="true" />
-            <element signature="e#945#946#0" expanded="true" />
-            <element signature="e#5356#5357#0" expanded="true" />
-            <element signature="e#5389#5390#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nickdnepr/strategy/map/routing/graphComponents/Point.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-238">
-          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-          <folding>
-            <element signature="e#2161#2162#0" expanded="true" />
-            <element signature="e#2195#2196#0" expanded="true" />
-            <element signature="e#3237#3238#0" expanded="true" />
-            <element signature="e#3271#3272#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nickdnepr/strategy/map/routing/graphComponents/Rib.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/map/routing/graphComponents/Rib.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="371">
           <caret line="25" column="43" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
@@ -497,19 +593,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nickdnepr/strategy/map/routing/RoutingPredicate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2081#2082#0" expanded="true" />
-            <element signature="e#2107#2108#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nickdnepr/strategy/map/surface/SurfaceMap.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/map/surface/SurfaceMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="28">
           <caret line="112" column="21" selection-start-line="112" selection-start-column="21" selection-end-line="112" selection-end-column="21" />
@@ -520,7 +604,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nickdnepr/strategy/map/routing/Graph.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/map/routing/Graph.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret line="21" selection-start-line="21" selection-end-line="21" />
@@ -530,7 +614,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nickdnepr/strategy/utils/MapDrawer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/utils/MapDrawer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="28" column="9" lean-forward="true" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
@@ -540,7 +624,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nickdnepr/strategy/map/Coordinates.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/map/Coordinates.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
@@ -553,20 +637,135 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nickdnepr/strategy/utils/Strings.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/map/routing/graphComponents/Point.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+        <state relative-caret-position="170">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2161#2162#0" expanded="true" />
+            <element signature="e#2195#2196#0" expanded="true" />
+            <element signature="e#3237#3238#0" expanded="true" />
+            <element signature="e#3271#3272#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nickdnepr/strategy/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/utils/Strings.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="304" lean-forward="true" selection-start-line="304" selection-end-line="304" />
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_221/src.zip!/java/util/HashMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="610" column="13" selection-start-line="610" selection-start-column="13" selection-end-line="610" selection-end-column="13" />
+          <folding>
+            <element signature="e#24331#24332#0" expanded="true" />
+            <element signature="e#24396#24397#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_221/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6">
+          <caret line="656" column="18" selection-start-line="656" selection-start-column="18" selection-end-line="656" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/map/routing/RoutingPredicate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="64" column="39" selection-start-line="64" selection-start-column="39" selection-end-line="64" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/models/Unit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-600">
+          <caret line="46" column="29" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1941#1942#0" expanded="true" />
+            <element signature="e#1997#1998#0" expanded="true" />
+            <element signature="e#3304#3305#0" expanded="true" />
+            <element signature="e#3332#3333#0" expanded="true" />
+            <element signature="e#3374#3375#0" expanded="true" />
+            <element signature="e#3408#3409#0" expanded="true" />
+            <element signature="e#3764#3765#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/map/units/UnitsMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="64" column="56" selection-start-line="64" selection-start-column="56" selection-end-line="64" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#905#906#0" expanded="true" />
+            <element signature="e#945#946#0" expanded="true" />
+            <element signature="e#6068#6069#0" expanded="true" />
+            <element signature="e#6102#6103#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_221/jre/lib/ext/nashorn.jar!/jdk/nashorn/internal/ir/debug/ObjectSizeCalculator.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="229" selection-start-line="229" selection-end-line="229" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/models/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="e#231#232#0" expanded="true" />
+            <element signature="e#256#257#0" expanded="true" />
+            <element signature="e#290#291#0" expanded="true" />
+            <element signature="e#318#319#0" expanded="true" />
+            <element signature="e#349#350#0" expanded="true" />
+            <element signature="e#376#377#0" expanded="true" />
+            <element signature="e#416#417#0" expanded="true" />
+            <element signature="e#448#449#0" expanded="true" />
+            <element signature="e#763#764#0" expanded="true" />
+            <element signature="e#802#803#0" expanded="true" />
+            <element signature="e#1051#1052#0" expanded="true" />
+            <element signature="e#1079#1080#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5508">
+          <caret line="324" column="19" selection-start-line="324" selection-start-column="19" selection-end-line="324" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/utils/UnitMovesDrawer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="51" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
         </state>
       </provider>
     </entry>
@@ -647,5 +846,8 @@
         </settings>
       </state>
     </states>
+  </component>
+  <component name="mavenExecuteGoalHistory">
+    <option value="" />
   </component>
 </project>

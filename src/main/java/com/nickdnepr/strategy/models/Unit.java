@@ -13,9 +13,10 @@ public class Unit {
     private Coordinates coordinates;
     private RoutingPredicate routingPredicate;
     private Route destinationRoute;
+    private Player owner;
 
     public Unit(String title, double actionPoints, Coordinates coordinates, RoutingPredicate routingPredicate) {
-        this.id = System.currentTimeMillis();
+        this.id = getNextId();
         this.title = title;
         this.actionPoints = actionPoints;
         this.maxActionPoints = actionPoints;
@@ -23,13 +24,33 @@ public class Unit {
         this.routingPredicate = routingPredicate;
     }
 
+    public Unit(String title, double actionPoints, Coordinates coordinates, RoutingPredicate routingPredicate, Player owner) {
+        this.id = getNextId();
+        this.title = title;
+        this.actionPoints = actionPoints;
+        this.maxActionPoints = actionPoints;
+        this.coordinates = coordinates;
+        this.routingPredicate = routingPredicate;
+        this.owner = owner;
+    }
+
     public Unit(String title, double actionPoints, double maxActionPoints, Coordinates coordinates, RoutingPredicate routingPredicate) {
-        this.id = System.currentTimeMillis();
+        this.id = getNextId();
         this.title = title;
         this.actionPoints = actionPoints;
         this.maxActionPoints = maxActionPoints;
         this.coordinates = coordinates;
         this.routingPredicate = routingPredicate;
+    }
+
+    public Unit(String title, double actionPoints, double maxActionPoints, Coordinates coordinates, RoutingPredicate routingPredicate, Player owner) {
+        this.id = getNextId();
+        this.title = title;
+        this.actionPoints = actionPoints;
+        this.maxActionPoints = maxActionPoints;
+        this.coordinates = coordinates;
+        this.routingPredicate = routingPredicate;
+        this.owner = owner;
     }
 
     public long getId() {
@@ -84,6 +105,14 @@ public class Unit {
         this.maxActionPoints = maxActionPoints;
     }
 
+    public Player getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Player owner) {
+        this.owner = owner;
+    }
+
     @Override
     public String toString() {
         return "Unit{" +
@@ -91,6 +120,13 @@ public class Unit {
                 ", title='" + title + '\'' +
                 ", actionPoints=" + actionPoints +
                 ", coordinates=" + coordinates +
+                ", owner=" + owner +
                 '}';
+    }
+
+    private static long nextId = 0;
+
+    private static long getNextId() {
+        return nextId++;
     }
 }

@@ -7,14 +7,17 @@ import com.nickdnepr.strategy.map.routing.graphComponents.Point;
 import com.nickdnepr.strategy.map.surface.SurfaceMap;
 import com.nickdnepr.strategy.map.surface.SurfaceType;
 import com.nickdnepr.strategy.map.units.UnitsMap;
+import com.nickdnepr.strategy.models.Player;
 import com.nickdnepr.strategy.models.Unit;
 import com.nickdnepr.strategy.utils.InputRange;
 import com.nickdnepr.strategy.utils.MapDrawer;
 import com.nickdnepr.strategy.utils.Strings;
 import com.nickdnepr.strategy.utils.UnitMovesDrawer;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -52,9 +55,12 @@ public class Main {
 //            System.out.println("Fuck you, sorry");
 //        }
         loadPresetMap();
-        MapDrawer.drawReliefMap(unitsMap);
-        MapDrawer.drawHeightsMap(unitsMap);
-        System.out.println(presetSurfaceMap.getRoute(new Coordinates(0, 0), new Coordinates(7, 7), RoutingPredicate.SURFACE_DEFAULT));
+        unitsMap.addPlayer(new Player("Player1"));
+        unitsMap.addPlayer(new Player("Player2"));
+        System.out.println(unitsMap.getPlayersBase().toString());
+//        MapDrawer.drawReliefMap(unitsMap);
+//        MapDrawer.drawHeightsMap(unitsMap);
+//        System.out.println(presetSurfaceMap.getRoute(new Coordinates(0, 0), new Coordinates(7, 7), RoutingPredicate.SURFACE_DEFAULT));
 //        testUnits();
         System.out.println("Welcome to the strategy core. Current version is " + VERSION + "");
         System.out.println(Strings.HELLO_STRING);
@@ -127,6 +133,7 @@ public class Main {
             if (command.toLowerCase().equals("un")) {
                 System.out.println("List of units:");
                 System.out.println(unitsMap.getUnitsBase().toString());
+//                unitsMap.getUnitsBase().values().stream().filter(unit -> unit!=null).collect(Collectors.toList());
             }
             if (command.toLowerCase().equals("au")) {
                 System.out.println("Please input unit name");
@@ -164,8 +171,11 @@ public class Main {
             if (command.toLowerCase().equals("shh")) {
                 MapDrawer.drawHeightsMap(unitsMap);
             }
-            if (command.toLowerCase().equals("end")){
+            if (command.toLowerCase().equals("end")) {
                 unitsMap.endRound();
+            }
+            if (command.toLowerCase().equals("pl")) {
+                System.out.println(unitsMap.getPlayersBase().values().toString());
             }
         }
     }

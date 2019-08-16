@@ -6,9 +6,12 @@ import com.nickdnepr.strategy.map.routing.RoutingPredicate;
 import com.nickdnepr.strategy.map.routing.graphComponents.Point;
 import com.nickdnepr.strategy.map.routing.graphComponents.Rib;
 import com.nickdnepr.strategy.map.surface.SurfaceMap;
+import com.nickdnepr.strategy.models.Player;
 import com.nickdnepr.strategy.models.Unit;
 import com.nickdnepr.strategy.utils.UnitMovesDrawer;
+import jdk.nashorn.internal.ir.debug.ObjectSizeCalculator;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
 public class UnitsMap {
@@ -16,11 +19,34 @@ public class UnitsMap {
     private SurfaceMap surfaceMap;
     private Unit[][][] unitsMap;
     private LinkedHashMap<Long, Unit> unitsBase;
+    private LinkedHashMap<Long, Player> playersBase;
+    private Player currentPlayer;
 
     public UnitsMap(SurfaceMap surfaceMap) {
         this.surfaceMap = surfaceMap;
         unitsMap = new Unit[surfaceMap.getHeight()][surfaceMap.getWidth()][10];
         unitsBase = new LinkedHashMap<>();
+        playersBase = new LinkedHashMap<>();
+    }
+
+    public boolean addPlayer(Player player) {
+//        System.out.println(player.getId());
+        if (playersBase.containsValue(player)) {
+            return false;
+        }
+        playersBase.put(player.getId(), player);
+        if (currentPlayer == null) {
+            currentPlayer = player;
+        }
+        return true;
+    }
+
+    public boolean setUnitOwner(long unitId, long ownerId) {
+        if (unitsBase.get(unitId) == null || playersBase.get(ownerId) == null) {
+            return false;
+        }
+        unitsBase.get(unitId).setOwner(playersBase.get(ownerId));
+        return true;
     }
 
     public Unit findUnitById(Long id) {
@@ -36,6 +62,7 @@ public class UnitsMap {
     }
 
     public boolean addUnit(Unit unit) {
+        System.out.println(ObjectSizeCalculator.getObjectSize(unit));
         if (unit.getRoutingPredicate().validatePoint(surfaceMap.getPoint(unit.getCoordinates()))) {
             return addIfNotFull(unit);
         }
@@ -149,10 +176,20 @@ public class UnitsMap {
         return surfaceMap;
     }
 
+    public LinkedHashMap<Long, Player> getPlayersBase() {
+        return playersBase;
+    }
+
     public void endRound() {
-        unitsBase.values().forEach(unit -> {
-            unit.setActionPoints(unit.getMaxActionPoints());
-        });
-        System.out.println("New round");
+        ArrayList<Player> players = new ArrayList<>(playersBase.values());
+        if (players.indexOf(currentPlayer) < players.size()-1) {
+            currentPlayer = players.get(players.indexOf(currentPlayer)+1);
+
+        } else {
+            unitsBase.values().forEach(unit -> unit.setActionPoints(unit.getMaxActionPoints()));
+            currentPlayer = players.get(0);
+            System.out.println("New round");
+        }
+        System.out.println(currentPlayer.getName()+ "'s turn");
     }
 }

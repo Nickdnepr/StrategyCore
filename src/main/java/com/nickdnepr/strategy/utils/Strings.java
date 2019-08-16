@@ -14,6 +14,6 @@ public class Strings {
             "mou - move selected unit\n" +
             "cls - clear screen\n" +
             "shh - show heights map\n" +
-            "end - end round" +
+            "end - end round\n" +
             "help - print help";
 }
