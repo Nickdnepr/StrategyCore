@@ -6,7 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7b6a9a6-a758-4c5d-9d29-98e8dcb075e0" name="Default Changelist" comment="- added maven support&#10;- added basics of teams&#10;- fixed id generation mechanisms">
+    <list default="true" id="d7b6a9a6-a758-4c5d-9d29-98e8dcb075e0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -43,7 +43,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
+            <state relative-caret-position="2567">
               <caret line="168" column="31" selection-start-line="168" selection-start-column="31" selection-end-line="168" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -56,7 +56,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/utils/MapDrawer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="207">
-              <caret line="62" column="56" lean-forward="true" selection-start-line="62" selection-start-column="56" selection-end-line="62" selection-end-column="56" />
+              <caret line="62" column="56" selection-start-line="62" selection-start-column="56" selection-end-line="62" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -115,7 +115,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar://C:/Program Files/Java/jdk1.8.0_221/jre/lib/ext/nashorn.jar!/jdk/nashorn/internal/ir/debug/ObjectSizeCalculator.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6613">
+            <state relative-caret-position="5712">
               <caret line="389" selection-start-line="389" selection-end-line="389" />
             </state>
           </provider>
@@ -223,115 +223,7 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="StrategyCore" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StrategyCore" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StrategyCore" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StrategyCore" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StrategyCore" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StrategyCore" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StrategyCore" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StrategyCore" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StrategyCore" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StrategyCore" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="strategy" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StrategyCore" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StrategyCore" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="strategy" type="462c0819:PsiDirectoryNode" />
-              <item name="map" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StrategyCore" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StrategyCore" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="strategy" type="462c0819:PsiDirectoryNode" />
-              <item name="map" type="462c0819:PsiDirectoryNode" />
-              <item name="routing" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StrategyCore" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StrategyCore" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="strategy" type="462c0819:PsiDirectoryNode" />
-              <item name="map" type="462c0819:PsiDirectoryNode" />
-              <item name="surface" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StrategyCore" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StrategyCore" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="strategy" type="462c0819:PsiDirectoryNode" />
-              <item name="map" type="462c0819:PsiDirectoryNode" />
-              <item name="units" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StrategyCore" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StrategyCore" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="strategy" type="462c0819:PsiDirectoryNode" />
-              <item name="map" type="462c0819:PsiDirectoryNode" />
-              <item name="units" type="462c0819:PsiDirectoryNode" />
-              <item name="actions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StrategyCore" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StrategyCore" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="strategy" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="StrategyCore" type="b2602c69:ProjectViewProjectNode" />
-              <item name="StrategyCore" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="strategy" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -427,6 +319,7 @@
       <workItem from="1565776785382" duration="704000" />
       <workItem from="1565872598512" duration="10086000" />
       <workItem from="1567093010330" duration="1420000" />
+      <workItem from="1568020405420" duration="383000" />
     </task>
     <task id="LOCAL-00001" summary="- added height map in routing&#10;- some minor fixes in routing &#10;- fixed some map displaying issues">
       <created>1565191450921</created>
@@ -442,11 +335,18 @@
       <option name="project" value="LOCAL" />
       <updated>1565943666212</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="- minor fixes">
+      <created>1568020531110</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1568020531110</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="171825000" />
+    <option name="totallyTimeSpent" value="172208000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1215" height="775" extended-state="6" />
@@ -491,7 +391,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="- added height map in routing&#10;- some minor fixes in routing &#10;- fixed some map displaying issues" />
     <MESSAGE value="- added maven support&#10;- added basics of teams&#10;- fixed id generation mechanisms" />
-    <option name="LAST_COMMIT_MESSAGE" value="- added maven support&#10;- added basics of teams&#10;- fixed id generation mechanisms" />
+    <MESSAGE value="- minor fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="- minor fixes" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$PROJECT_DIR$/../jdk1.8.0_172/src.zip!/java/util/Comparator.java" />
@@ -602,20 +503,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/map/routing/graphComponents/Point.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2161#2162#0" expanded="true" />
-            <element signature="e#2195#2196#0" expanded="true" />
-            <element signature="e#3237#3238#0" expanded="true" />
-            <element signature="e#3271#3272#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/map/routing/graphComponents/Point.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/utils/Strings.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -636,6 +524,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/StrategyCore.iml">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_221/src.zip!/java/util/LinkedHashMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="437" column="13" selection-start-line="437" selection-start-column="13" selection-end-line="437" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2567">
+          <caret line="168" column="31" selection-start-line="168" selection-start-column="31" selection-end-line="168" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/utils/UnitMovesDrawer.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -679,7 +591,7 @@
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_221/jre/lib/ext/nashorn.jar!/jdk/nashorn/internal/ir/debug/ObjectSizeCalculator.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6613">
+        <state relative-caret-position="5712">
           <caret line="389" selection-start-line="389" selection-end-line="389" />
         </state>
       </provider>
@@ -701,34 +613,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="168" column="31" selection-start-line="168" selection-start-column="31" selection-end-line="168" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_221/src.zip!/java/util/LinkedHashMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="437" column="13" selection-start-line="437" selection-start-column="13" selection-end-line="437" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/nickdnepr/strategy/utils/MapDrawer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
-          <caret line="62" column="56" lean-forward="true" selection-start-line="62" selection-start-column="56" selection-end-line="62" selection-end-column="56" />
+          <caret line="62" column="56" selection-start-line="62" selection-start-column="56" selection-end-line="62" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
