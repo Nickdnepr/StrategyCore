@@ -62,6 +62,10 @@ public class MapDrawer {
     public static void drawUnitOnMap(UnitsMap unitsMap, long unitId) {
         Unit unit = unitsMap.getUnitsBase().get(unitId);
         LinkedHashMap<Coordinates, Pair<String, String>> map = new LinkedHashMap<>();
+        if (unit==null){
+            System.out.println("Unit does not exist");
+            return;
+        }
         map.put(unit.getCoordinates(), new Pair<>("U", Main.ANSI_YELLOW + Main.ANSI_BLUE_BACKGROUND));
         drawMapWithMarks(unitsMap, map);
     }
